@@ -897,20 +897,6 @@ io.on("connection", (socket) => {
   });
 });
 
-import path from "path";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, '../../client/build')));
-
-// Catch-all route to serve the React app's index.html
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../client/build/index.html'));
-});
-
 const PORT = process.env.PORT || 5000;
 httpServer.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
