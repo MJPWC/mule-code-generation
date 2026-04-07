@@ -13,10 +13,10 @@
   align-items: center;
   gap: 6px;
   padding: 8px 16px;
-  border: 1px solid rgba(255,255,255,0.07);
+  border: 1px solid var(--border);
   border-radius: 8px;
   background: transparent;
-  color: #8892a4;
+  color: var(--text-secondary);
   font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
@@ -25,14 +25,14 @@
 }
 
 .tab-btn.active {
-  background: rgba(79,142,247,0.15);
-  border-color: rgba(79,142,247,0.4);
-  color: #4f8ef7;
+  background: rgba(0,161,223,0.2);
+  border-color: var(--border-hover);
+  color: var(--accent);
 }
 
 .tab-btn:not(.active):hover {
-  color: #e8eaf2;
-  border-color: rgba(255,255,255,0.15);
+  color: var(--text-primary);
+  border-color: rgba(176, 203, 236, 0.3);
 }
 
 .output-panel {
@@ -53,7 +53,7 @@
 .output-header h3 {
   font-size: 1rem;
   font-weight: 700;
-  color: #e8eaf2;
+  color: var(--text-primary);
 }
 
 .header-buttons {
@@ -66,10 +66,10 @@
 .project-selector,
 .file-selector {
   padding: 7px 12px;
-  background: #21263a;
-  border: 1px solid rgba(255,255,255,0.07);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   border-radius: 8px;
-  color: #e8eaf2;
+  color: var(--text-primary);
   font-size: 0.8rem;
   font-family: 'JetBrains Mono', monospace;
   cursor: pointer;
@@ -80,12 +80,12 @@
 .project-selector:focus,
 .file-selector:focus {
   outline: none;
-  border-color: #4f8ef7;
+  border-color: var(--accent);
 }
 
 .project-selector option,
 .file-selector option {
-  background: #1a1e2a;
+  background: var(--bg-card);
 }
 
 .raml-action-btn {
@@ -103,13 +103,13 @@
 }
 
 .raml-action-btn.generate-mule {
-  background: linear-gradient(135deg, #4f8ef7, #6366f1);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: white;
 }
 
 .raml-action-btn.generate-mule:hover:not(:disabled) {
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(79,142,247,0.4);
+  box-shadow: 0 6px 16px rgba(0,161,223,0.42);
 }
 
 .raml-action-btn:disabled {
@@ -144,7 +144,7 @@
 .mule-file-header h4 {
   font-size: 0.8rem;
   font-weight: 600;
-  color: #8892a4;
+  color: var(--text-secondary);
   font-family: 'JetBrains Mono', monospace;
   flex: 1;
   white-space: nowrap;
@@ -154,10 +154,10 @@
 
 .copy-btn {
   padding: 5px 12px;
-  background: #21263a;
-  border: 1px solid rgba(255,255,255,0.07);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
   border-radius: 6px;
-  color: #8892a4;
+  color: var(--text-secondary);
   font-size: 0.75rem;
   cursor: pointer;
   font-family: 'JetBrains Mono', monospace;
@@ -166,16 +166,16 @@
 }
 
 .copy-btn:hover {
-  border-color: #4f8ef7;
-  color: #4f8ef7;
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .empty-output {
   padding: 32px;
   text-align: center;
-  color: #4a5568;
+  color: var(--text-muted);
   font-size: 0.88rem;
   font-family: 'JetBrains Mono', monospace;
-  border: 1px dashed rgba(255,255,255,0.07);
+  border: 1px dashed var(--border);
   border-radius: 12px;
 }

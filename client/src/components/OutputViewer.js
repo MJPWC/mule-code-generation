@@ -21,7 +21,7 @@ const OutputViewer = ({
   const [deduplicatedFiles, setDeduplicatedFiles] = useState([]); // Store deduplicated files
 
   const tabs = [
-    { id: 'muleCode', label: '📦 Mule Code', icon: '📦' },
+    { id: 'muleCode', label: 'Mule Code', icon: 'Code' },
   ];
 
   useEffect(() => {
@@ -85,7 +85,7 @@ const OutputViewer = ({
             onClick={() => handleCopy(selectedMuleFile.content, selectedMuleFile.path)}
             className="copy-btn"
           >
-            {copied === selectedMuleFile.path ? '✓ Copied' : '📋 Copy'}
+            {copied === selectedMuleFile.path ? 'Copied' : 'Copy'}
           </button>
         </div>
         <SyntaxHighlighter language={language} style={darcula} customStyle={{ padding: '24px', borderRadius: '16px', fontSize: '0.9rem', lineHeight: '1.8', whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>

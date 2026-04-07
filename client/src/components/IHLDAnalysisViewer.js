@@ -173,7 +173,7 @@ const IHLDAnalysisViewer = ({ analysis, apis, isFallback, sessionId, socket, onC
     if (!socket) return;
 
     const handleCodeGenerated = (data) => {
-      console.log('📦 Code generated for API:', data.apiName);
+      console.log('Code generated for API:', data.apiName);
       // Mark code as ready for this API
       setCodeReady(prev => new Set([...prev, data.apiName]));
       // Clear uploading/generating states
@@ -224,7 +224,7 @@ const IHLDAnalysisViewer = ({ analysis, apis, isFallback, sessionId, socket, onC
         </div>
       )}
       <div className="analysis-section">
-        <h3>📊 Integration Design Document Analysis</h3>
+        <h3>Integration Design Document Analysis</h3>
         <div className="analysis-content">
           <pre>{analysis}</pre>
         </div>
@@ -293,7 +293,7 @@ const IHLDAnalysisViewer = ({ analysis, apis, isFallback, sessionId, socket, onC
                           {uploadingRaml[api.name] ? (
                             <span>⏳ Generating...</span>
                           ) : (
-                            <span>📁 Generate with RAML</span>
+                            <span>Generate with RAML</span>
                           )}
                         </label>
                         <button
@@ -304,7 +304,7 @@ const IHLDAnalysisViewer = ({ analysis, apis, isFallback, sessionId, socket, onC
                           {generatingWithoutRaml.has(api.name) ? (
                             <span>⏳ Generating...</span>
                           ) : (
-                            <span>🚀 Generate without RAML</span>
+                            <span>Generate without RAML</span>
                           )}
                         </button>
                       </>
@@ -321,7 +321,7 @@ const IHLDAnalysisViewer = ({ analysis, apis, isFallback, sessionId, socket, onC
                         {downloading.has(api.name) ? (
                           <span>⏳ Downloading...</span>
                         ) : (
-                          <span>📥 Download Project ZIP</span>
+                            <span>Download Project ZIP</span>
                         )}
                       </button>
                     ) : (
@@ -333,7 +333,7 @@ const IHLDAnalysisViewer = ({ analysis, apis, isFallback, sessionId, socket, onC
                         {generatingWithoutRaml.has(api.name) ? (
                           <span>⏳ Generating...</span>
                         ) : (
-                          <span>🚀 Generate the code</span>
+                            <span>Generate the code</span>
                         )}
                       </button>
                     )}
