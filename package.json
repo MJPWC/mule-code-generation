@@ -1,0 +1,45 @@
+{
+  "name": "mulesoft-multi-agent",
+  "version": "1.0.0",
+  "description": "MuleSoft code generation system with LLM integration",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "server": "node server/index.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build"
+  },
+  "keywords": [
+    "mulesoft",
+    "llm",
+    "chatgpt",
+    "openai",
+    "agent",
+    "ai",
+    "raml",
+    "architecture"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "adm-zip": "^0.5.10",
+    "archiver": "^7.0.1",
+    "axios": "^1.7.7",
+    "cohere-ai": "^7.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "fs-extra": "^11.1.1",
+    "mammoth": "^1.11.0",
+    "node-fetch": "^3.3.2",
+    "openai": "^4.20.0",
+    "pdf-parse": "^1.1.1",
+    "socket.io": "^4.6.1",
+    "xsd-schema-validator": "latest"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

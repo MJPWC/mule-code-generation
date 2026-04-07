@@ -1,0 +1,337 @@
+>>> api.raml <<<
+
+#%RAML 1.0
+
+title: Shopify Order Experience API
+version: 1.0
+baseUri: https://api.shopify.com
+
+traits:
+  client-id-required:
+    description: Client ID and Client Secret are required
+    headers:
+      - client_id:
+          required: true
+          description: Client ID
+          example: "your_client_id"
+          type: string
+      - client_secret:
+          required: true
+          description: Client Secret
+          example: "your_client_secret"
+          type: string
+
+securitySchemes:
+  oauth_2_0:
+    description: OAuth 2.0 Client Credentials
+    type: oauth2
+    flow: client_credentials
+    tokenEndpoint: https://api.shopify.com/oauth/token
+
+types:
+  Customer:
+    description: Customer data type
+    properties:
+      id:
+        type: string
+        description: Unique customer ID
+        example: "your_customer_id"
+      email:
+        type: string
+        description: Customer email address
+        example: "customer@example.com"
+      firstName:
+        type: string
+        description: Customer first name
+        example: "John"
+      lastName:
+        type: string
+        description: Customer last name
+        example: "Doe"
+
+resourceTypes:
+  Order:
+    description: Order resource type
+    properties:
+      id:
+        type: string
+        description: Unique order ID
+        example: "your_order_id"
+      customer:
+        type: Customer
+        description: Customer data
+        example:
+          id: "your_customer_id"
+          email: "customer@example.com"
+          firstName: "John"
+          lastName: "Doe"
+      items:
+        type: array
+        description: Order items
+        example:
+          - productId: "your_product_id"
+            variantId: "your_variant_id"
+            quantity: 2
+            price: 19.99
+          - productId: "your_product_id"
+            variantId: "your_variant_id"
+            quantity: 1
+            price: 9.99
+      totalAmount:
+        type: number
+        description: Total order amount
+        example: 29.98
+      currency:
+        type: string
+        description: Order currency
+        example: "USD"
+      status:
+        type: string
+        description: Order status
+        example: "pending"
+
+responses:
+  200:
+    description: Successful response
+    body:
+      application/json:
+        type: Order
+  401:
+    description: Unauthorized response
+    body:
+      application/json:
+        type: object
+        properties:
+          error:
+            type: string
+            description: Error message
+            example: "Invalid client ID or client secret"
+  500:
+    description: Internal server error response
+    body:
+      application/json:
+        type: object
+        properties:
+          error:
+            type: string
+            description: Error message
+            example: "Internal server error"
+
+/:
+  get:
+    description: Retrieve order status
+    responses:
+      200:
+        description: Successful response
+        body:
+          application/json:
+            type: Order
+      401:
+        description: Unauthorized response
+        body:
+          application/json:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Error message
+                example: "Invalid client ID or client secret"
+      500:
+        description: Internal server error response
+        body:
+          application/json:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Error message
+                example: "Internal server error"
+
+/api/orders:
+  post:
+    description: Create a new order
+    body:
+      application/json:
+        type: Order
+    responses:
+      201:
+        description: Created response
+        body:
+          application/json:
+            type: Order
+      401:
+        description: Unauthorized response
+        body:
+          application/json:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Error message
+                example: "Invalid client ID or client secret"
+      500:
+        description: Internal server error response
+        body:
+          application/json:
+            type: object
+            properties:
+              error:
+                type: string
+                description: Error message
+                example: "Internal server error"
+
+>>> traits/shopify-order-experience-api.raml <<<
+
+#%RAML 1.0
+
+title: Shopify Order Experience API
+description: API for handling customer order interactions from Shopify
+
+traits:
+  client-id-required:
+    description: Client ID and Client Secret are required
+    headers:
+      - client_id:
+          required: true
+          description: Client ID
+          example: "your_client_id"
+          type: string
+      - client_secret:
+          required: true
+          description: Client Secret
+          example: "your_client_secret"
+          type: string
+
+securitySchemes:
+  oauth_2_0:
+    description: OAuth 2.0 Client Credentials
+    type: oauth2
+    flow: client_credentials
+    tokenEndpoint: https://api.shopify.com/oauth/token
+
+types:
+  Customer:
+    description: Customer data type
+    properties:
+      id:
+        type: string
+        description: Unique customer ID
+        example: "your_customer_id"
+      email:
+        type: string
+        description: Customer email address
+        example: "customer@example.com"
+      firstName:
+        type: string
+        description: Customer first name
+        example: "John"
+      lastName:
+        type: string
+        description: Customer last name
+        example: "Doe"
+
+resourceTypes:
+  Order:
+    description: Order resource type
+    properties:
+      id:
+        type: string
+        description: Unique order ID
+        example: "your_order_id"
+      customer:
+        type: Customer
+        description: Customer data
+        example:
+          id: "your_customer_id"
+          email: "customer@example.com"
+          firstName: "John"
+          lastName: "Doe"
+      items:
+        type: array
+        description: Order items
+        example:
+          - productId: "your_product_id"
+            variantId: "your_variant_id"
+            quantity: 2
+            price: 19.99
+          - productId: "your_product_id"
+            variantId: "your_variant_id"
+            quantity: 1
+            price: 9.99
+      totalAmount:
+        type: number
+        description: Total order amount
+        example: 29.98
+      currency:
+        type: string
+        description: Order currency
+        example: "USD"
+      status:
+        type: string
+        description: Order status
+        example: "pending"
+
+responses:
+  200:
+    description: Successful response
+    body:
+      application/json:
+        type: Order
+  401:
+    description: Unauthorized response
+    body:
+      application/json:
+        type: object
+        properties:
+          error:
+            type: string
+            description: Error message
+            example: "Invalid client ID or client secret"
+  500:
+    description: Internal server error response
+    body:
+      application/json:
+        type: object
+        properties:
+          error:
+            type: string
+            description: Error message
+            example: "Internal server error"
+
+>>> examples/order.json <<<
+
+{
+  "id": "your_order_id",
+  "customer": {
+    "id": "your_customer_id",
+    "email": "customer@example.com",
+    "firstName": "John",
+    "lastName": "Doe"
+  },
+  "items": [
+    {
+      "productId": "your_product_id",
+      "variantId": "your_variant_id",
+      "quantity": 2,
+      "price": 19.99
+    },
+    {
+      "productId": "your_product_id",
+      "variantId": "your_variant_id",
+      "quantity": 1,
+      "price": 9.99
+    }
+  ],
+  "totalAmount": 29.98,
+  "currency": "USD",
+  "status": "pending"
+}
+
+>>> examples/customer.json <<<
+
+{
+  "id": "your_customer_id",
+  "email": "customer@example.com",
+  "firstName": "John",
+  "lastName": "Doe"
+}
